@@ -1,4 +1,3 @@
-// src/routes/api/chat/+server.js
 import { json } from "@sveltejs/kit";
 
 export async function POST({ request }) {
@@ -18,20 +17,32 @@ export async function POST({ request }) {
                 "Authorization": `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: "gpt-4o-mini",
-                input: message
+                model: "gpt-4o-mini",      // nur Modell
+                input: message             // Nachricht
             })
         });
 
         const data = await response.json();
-        console.log(data); // <-- Zum Debuggen
 
+        // Wenn OpenAI Fehler zurückgibt:
+        if (data.error) {
+            console.error("❌ OpenAI API Error:", data.error);
+            return json(
+                { reply: "AI Error: " + data.error.message },
+                { status: 500 }
+            );
+        }
+
+        // Erfolgreiche Antwort
         return json({
-            reply: data.output_text // ⚡ NEUE API → klappt zuverlässig!
+            reply: data.output_text || "No response."
         });
 
     } catch (err) {
-        console.error("AI Request failed:", err);
-        return json({ reply: "Server error talking to OpenAI." }, { status: 500 });
+        console.error("❌ Request failed:", err);
+        return json(
+            { reply: "Server error talking to OpenAI." },
+            { status: 500 }
+        );
     }
 }
