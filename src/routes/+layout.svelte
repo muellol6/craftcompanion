@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import botImg from '$lib/assets/bot.png';   // 🟢 FIX: Bild korrekt importiert
 
 	/* ---------------------------
 	   Navigation Tabs
@@ -39,7 +40,7 @@
 		input = "";
 
 		try {
-			const res = await fetch("/api/chat", {   // <<<<< HIER FIX!
+			const res = await fetch("/api/chat", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ message: userMessage })
@@ -84,7 +85,7 @@
      CHAT BUTTON (BOTTOM RIGHT)
 ---------------------------------------- -->
 <div class="chat-button" on:click={() => open = true}>
-	<img src="/src/lib/assets/bot.png" alt="bot" />
+	<img src="{botImg}" alt="bot" />   <!-- 🟢 FIXED IMAGE PATH -->
 </div>
 
 <!-- ---------------------------------------
