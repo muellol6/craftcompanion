@@ -5,44 +5,37 @@ export async function POST({ request }) {
     const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
     if (!apiKey) {
-        console.error("❌ API key not loaded");
         return json({ reply: "API key missing." }, { status: 500 });
     }
 
     try {
-        const response = await fetch("https://api.openai.com/v1/responses", {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: "gpt-4o-mini",      // nur Modell
-                input: message             // Nachricht
+                model: "gpt-4o-mini",
+                messages: [
+                    { role: "user", content: message }
+                ]
             })
         });
 
         const data = await response.json();
 
-        // Wenn OpenAI Fehler zurückgibt:
         if (data.error) {
-            console.error("❌ OpenAI API Error:", data.error);
-            return json(
-                { reply: "AI Error: " + data.error.message },
-                { status: 500 }
-            );
+            console.error("OpenAI Error:", data.error);
+            return json({ reply: "AI Error: " + data.error.message }, { status: 500 });
         }
 
-        // Erfolgreiche Antwort
-        return json({
-            reply: data.output_text || "No response."
-        });
+        const reply = data.choices?.[0]?.message?.content ?? "No reply.";
+
+        return json({ reply });
 
     } catch (err) {
-        console.error("❌ Request failed:", err);
-        return json(
-            { reply: "Server error talking to OpenAI." },
-            { status: 500 }
-        );
+        console.error("❌ Chat request failed:", err);
+        return json({ reply: "Server error" }, { status: 500 });
     }
 }
