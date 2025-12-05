@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import Chart from "chart.js/auto";
+    import chartsImg from "$lib/assets/charts.png"; // ⭐ Hintergrundbild importieren
 
     let canvas;
     let chart;
@@ -9,9 +10,7 @@
         const res = await fetch("/api/itemlist");
         const items = await res.json();
 
-        // ---------------------------------------------
-        // 1️⃣ Kategorien aggregieren → SUMME von amount
-        // ---------------------------------------------
+        // Kategorien aggregieren
         const categoryTotals = {};
 
         for (const item of items) {
@@ -25,13 +24,9 @@
             categoryTotals[category] += amount;
         }
 
-        // ---------------------------------------------
-        // 2️⃣ Daten für das Chart vorbereiten
-        // ---------------------------------------------
         const labels = Object.keys(categoryTotals);
         const values = Object.values(categoryTotals);
 
-        // Destroy old chart when navigating
         if (chart) chart.destroy();
 
         chart = new Chart(canvas, {
@@ -72,20 +67,41 @@
     });
 </script>
 
-<div class="chart-wrapper">
-    <h1>Category Statistics</h1>
+<!-- ⭐ Hintergrund-Container -->
+<div class="bg" style="background-image: url('{chartsImg}');">
 
-    <div class="chart-box">
-        <canvas bind:this={canvas}></canvas>
+    <div class="chart-wrapper">
+        <h1>Category Statistics</h1>
+
+        <div class="chart-box">
+            <canvas bind:this={canvas}></canvas>
+        </div>
     </div>
+
 </div>
 
 <style>
+    /* ⭐ Neuer Hintergrundblock für Charts-Seite */
+    .bg {
+        width: 100%;
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        padding-top: 3rem;
+    }
+
     .chart-wrapper {
         padding: 3rem;
         color: white;
         text-align: center;
         font-family: 'Minecraftia';
+        width: 100%;
     }
 
     h1 {
@@ -97,7 +113,7 @@
         width: 85%;
         height: 480px;
         margin: 0 auto;
-        background: #ffffff08;
+        background: #00000066; /* etwas dunkler für bessere Lesbarkeit */
         backdrop-filter: blur(14px);
         border-radius: 20px;
         border: 1px solid #ffffff20;
