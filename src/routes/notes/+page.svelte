@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import libraryImg from '$lib/assets/library.png'; // Hintergrundbild
 
     let notes = [];
     let newNote = "";
@@ -31,6 +32,7 @@
         await fetch(`/api/notes/${id}`, {
             method: "DELETE"
         });
+
         await loadNotes();
     }
 
@@ -57,48 +59,70 @@
     }
 </script>
 
-<div class="wrapper">
-    <h1>Notes</h1>
-    <p class="subtitle">
-        This is your personal space. Feel free to add, edit or remove notes whenever you like.
-    </p>
+<!-- ⭐ Hintergrundbild direkt per Inline-Style, damit Svelte das Bild richtig verarbeitet -->
+<div class="bg" style="background-image: url('{libraryImg}');">
 
-    <!-- New Note Input -->
-    <div class="new-note">
-        <textarea placeholder="Write your note..." bind:value={newNote}></textarea>
-        <button on:click={addNote}>Add Note</button>
+    <div class="wrapper">
+        <h1>Notes</h1>
+        <p class="subtitle">
+            This is your personal space. Feel free to add, edit or remove notes whenever you like.
+        </p>
+
+        <!-- New Note Input -->
+        <div class="new-note">
+            <textarea placeholder="Write your note..." bind:value={newNote}></textarea>
+            <button on:click={addNote}>Add Note</button>
+        </div>
+
+        <!-- Existing Notes -->
+        <div class="notes-list">
+            {#each notes as note}
+                {#if editingId === note._id}
+                    <div class="note editing">
+                        <textarea bind:value={editText}></textarea>
+                        <div class="buttons">
+                            <button class="save" on:click={saveEdit}>Save</button>
+                            <button class="cancel" on:click={cancelEdit}>Cancel</button>
+                        </div>
+                    </div>
+                {:else}
+                    <div class="note">
+                        <p>{note.text}</p>
+                        <div class="buttons">
+                            <button class="edit" on:click={() => startEdit(note)}>Edit</button>
+                            <button class="delete" on:click={() => deleteNote(note._id)}>Delete</button>
+                        </div>
+                    </div>
+                {/if}
+            {/each}
+        </div>
     </div>
 
-    <!-- Existing Notes -->
-    <div class="notes-list">
-        {#each notes as note}
-            {#if editingId === note._id}
-                <div class="note editing">
-                    <textarea bind:value={editText}></textarea>
-                    <div class="buttons">
-                        <button class="save" on:click={saveEdit}>Save</button>
-                        <button class="cancel" on:click={cancelEdit}>Cancel</button>
-                    </div>
-                </div>
-            {:else}
-                <div class="note">
-                    <p>{note.text}</p>
-                    <div class="buttons">
-                        <button class="edit" on:click={() => startEdit(note)}>Edit</button>
-                        <button class="delete" on:click={() => deleteNote(note._id)}>Delete</button>
-                    </div>
-                </div>
-            {/if}
-        {/each}
-    </div>
 </div>
 
 <style>
+
+    /* ⭐ Hintergrund – jetzt funktioniert es */
+    .bg {
+        width: 100%;
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        padding-top: 3rem;
+    }
+
+    /* Wrapper Box */
     .wrapper {
         max-width: 650px;
-        margin: 3rem auto;
+        margin-bottom: 5rem;
         padding: 2.5rem;
-        background: #ffffff10;
+        background: #00000066; /* leichte Abdunkelung für gute Lesbarkeit */
         border: 1px solid #ffffff20;
         border-radius: 18px;
         backdrop-filter: blur(14px);
@@ -119,23 +143,24 @@
         line-height: 1.3;
     }
 
-    /* New smaller input */
+    /* ⭐ Eingabefeld – sauber ausgerichtet links/rechts */
     .new-note textarea {
         width: 100%;
-        height: 90px; /* Smaller */
-        padding: 0.8rem;
+        height: 90px;
+        padding: 0.8rem 1rem;
+        box-sizing: border-box; /* verhindert Überbreite */
         background: #ffffff12;
         border: 1px solid #ffffff30;
         border-radius: 10px;
         color: white;
         resize: none;
-        margin-bottom: 1rem;
+        margin: 0 auto 1rem auto;
         font-size: 1rem;
     }
 
-    /* Smaller Add button */
+    /* ⭐ Add Button – kompakt */
     .new-note button {
-        width: 180px; /* Not full width */
+        width: 180px;
         padding: 0.7rem 0;
         background: #4da3ff;
         border: none;
@@ -171,8 +196,9 @@
 
     textarea {
         width: 100%;
-        height: 80px; /* Smaller edit field */
-        padding: 0.8rem;
+        height: 80px;
+        padding: 0.8rem 1rem;
+        box-sizing: border-box;
         background: #ffffff15;
         border: 1px solid #ffffff30;
         border-radius: 10px;
