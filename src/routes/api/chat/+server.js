@@ -18,7 +18,22 @@ export async function POST({ request }) {
             body: JSON.stringify({
                 model: "gpt-4o-mini",
                 messages: [
-                    { role: "user", content: message }
+                    {
+                        role: "system",
+                        content:
+`Du bist der CraftBot, ein freundlicher Minecraft-Experte.
+Antworten müssen:
+- nur über Minecraft handeln
+- kurz & präzise sein (maximal 2–3 Sätze)
+- keine Themen außerhalb von Minecraft beantworten.
+
+Wenn eine Frage nicht zu Minecraft gehört, sage:
+"Ich kann nur Fragen zu Minecraft beantworten."`
+                    },
+                    {
+                        role: "user",
+                        content: message
+                    }
                 ]
             })
         });

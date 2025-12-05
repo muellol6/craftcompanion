@@ -9,7 +9,8 @@
 		{ name: 'Finder', path: '/' },
 		{ name: 'My List', path: '/mylist' },
 		{ name: 'Collect', path: '/collect' },
-		{ name: 'Charts', path: '/charts' }
+		{ name: 'Charts', path: '/charts' },
+    	{ name: 'Notes', path: '/notes' }
 	];
 
 	/* ---------------------------
