@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import Chart from "chart.js/auto";
-    import chartsImg from "$lib/assets/charts.png"; // ⭐ Hintergrundbild importieren
+    import chartsImg from "$lib/assets/charts.png"; 
 
     let canvas;
     let chart;
@@ -10,7 +10,7 @@
         const res = await fetch("/api/itemlist");
         const items = await res.json();
 
-        // Kategorien aggregieren
+        
         const categoryTotals = {};
 
         for (const item of items) {
@@ -67,7 +67,7 @@
     });
 </script>
 
-<!-- ⭐ Hintergrund-Container -->
+
 <div class="bg" style="background-image: url('{chartsImg}');">
 
     <div class="chart-wrapper">
@@ -81,7 +81,7 @@
 </div>
 
 <style>
-    /* ⭐ Neuer Hintergrundblock für Charts-Seite */
+    
     .bg {
         width: 100%;
         min-height: 100vh;
