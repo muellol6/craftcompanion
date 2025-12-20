@@ -15,7 +15,7 @@
 
     messages.push({ from: "user", text: message });
 
-    // Call your backend API route
+   
     const res = await fetch("/api/mcchat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

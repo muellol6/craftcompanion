@@ -43,7 +43,7 @@
 {/if}
 
 <style>
-/* Background overlay */
+
 .overlay {
     position: fixed;
     inset: 0;
@@ -54,7 +54,7 @@
     z-index: 20;
 }
 
-/* Modal window */
+
 .modal {
     background: #1e1e1e;
     padding: 2.5rem;
@@ -66,7 +66,7 @@
     position: relative;
 }
 
-/* Close button */
+
 .close-btn {
     position: absolute;
     top: 12px;
@@ -78,7 +78,7 @@
     cursor: pointer;
 }
 
-/* Headings */
+
 h1 {
     margin-top: 0.5rem;
     font-size: 2rem;
@@ -90,14 +90,14 @@ h2 {
     text-decoration: underline;
 }
 
-/* Category */
+
 .category {
     font-size: 1.3rem;
     margin-top: 0.5rem;
     opacity: 0.9;
 }
 
-/* Ingredients list */
+
 .ingredients {
     margin-top: 1rem;
 }
