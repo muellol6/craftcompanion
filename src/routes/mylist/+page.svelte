@@ -40,7 +40,7 @@
         splitPages();
     }
 
-    // NEU – lädt vollständige crafting details korrekt über neue API
+    //  lädt vollständige crafting details korrekt über neue API
     async function openDetails(item) {
         selectedItem = { ...item };
 
@@ -57,13 +57,13 @@
     }
 </script>
 
-<!-- BACKGROUND -->
+
 <div class="bg">
 
-    <!-- BOOK -->
+    
     <div class="book-container">
 
-        <!-- LEFT PAGE -->
+        
         <div class="page left">
             {#each leftPage as item}
                 <div class="entry" on:click={() => openDetails(item)}>
@@ -77,7 +77,7 @@
             {/each}
         </div>
 
-        <!-- RIGHT PAGE -->
+        
         <div class="page right">
             {#each rightPage as item}
                 <div class="entry" on:click={() => openDetails(item)}>
@@ -98,7 +98,7 @@
     </div>
 </div>
 
-<!-- Detail Popup -->
+
 <ItemDetail
     item={selectedItem}
     visible={showDetails}

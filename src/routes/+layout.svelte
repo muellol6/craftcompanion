@@ -1,10 +1,8 @@
 <script>
 	import { page } from '$app/stores';
-	import botImg from '$lib/assets/bot.png';   // 🟢 FIX: Bild korrekt importiert
+	import botImg from '$lib/assets/bot.png';   
 
-	/* ---------------------------
-	   Navigation Tabs
-	---------------------------- */
+	
 	const tabs = [
 		{ name: 'Finder', path: '/' },
 		{ name: 'My List', path: '/mylist' },
@@ -13,9 +11,7 @@
     	{ name: 'Notes', path: '/notes' }
 	];
 
-	/* ---------------------------
-	   Chatbot State
-	---------------------------- */
+	
 	let open = false;
 	let input = "";
 
@@ -26,18 +22,16 @@
 		}
 	];
 
-	/* ---------------------------
-	   SEND MESSAGE (modern API)
-	---------------------------- */
+	
 	async function sendMessage() {
 		if (!input.trim()) return;
 
 		const userMessage = input;
 
-		// Show user message in UI
+		
 		messages = [...messages, { from: "user", text: userMessage }];
 
-		// clear input immediately
+		// input leeren
 		input = "";
 
 		try {
@@ -64,9 +58,7 @@
 </script>
 
 
-<!-- ---------------------------------------
-     NAVIGATION BAR
----------------------------------------- -->
+
 <nav class="navbar">
 	<div class="nav-content">
 		{#each tabs as t}
@@ -79,19 +71,15 @@
 	</div>
 </nav>
 
-<!-- CONTENT SLOT -->
+
 <slot />
 
-<!-- ---------------------------------------
-     CHAT BUTTON (BOTTOM RIGHT)
----------------------------------------- -->
+
 <div class="chat-button" on:click={() => open = true}>
 	<img src="{botImg}" alt="bot" />   <!-- 🟢 FIXED IMAGE PATH -->
 </div>
 
-<!-- ---------------------------------------
-     CHAT POPUP
----------------------------------------- -->
+
 {#if open}
 	<div class="chat-popup">
 		<div class="chat-header">
@@ -122,7 +110,7 @@
 
 
 <style>
-	/* ========== GLOBAL FONT ========== */
+	
 	@font-face {
 		font-family: 'Minecraftia';
 		src: url('/src/lib/fonts/Minecraftia.ttf') format('truetype');
@@ -167,7 +155,7 @@
 		border-bottom: 2px solid #4da3ff;
 	}
 
-	/* --- CHAT BUTTON --- */
+	
 	.chat-button {
 		position: fixed;
 		bottom: 22px;

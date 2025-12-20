@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   let search = "";
-  let amount = "1";  // ← Standardwert wieder 1
+  let amount = "1";  
   let items = [];
   let suggestions = [];
   let message = "";
@@ -12,7 +12,7 @@
     items = await res.json();
   });
 
-  // Vorschläge aktualisieren
+  
   $: {
     if (search.trim().length === 0) {
       suggestions = [];
@@ -34,12 +34,12 @@
     suggestions = [];
   }
 
-  // Amount validieren (keine Kommas, keine negativen Werte)
+  
   function validateAmount(e) {
     let val = parseInt(e.target.value);
 
     if (isNaN(val) || val < 1) {
-      amount = "1"; // ← niemals leer, immer 1 fallback
+      amount = "1"; 
     } else {
       amount = Math.floor(val);
     }
@@ -66,7 +66,7 @@
     if (res.ok) {
       message = `${search} added!`;
       search = "";
-      amount = "1"; // reset back to 1
+      amount = "1"; 
       suggestions = [];
       setTimeout(() => (message = ""), 2000);
     } else {
@@ -77,7 +77,7 @@
   }
 </script>
 
-<!-- BACKGROUND WRAPPER -->
+
 <div class="finder-bg">
 
   <div class="finder-wrapper">
@@ -90,7 +90,7 @@
         and add them to your list
       </p>
 
-      <!-- SEARCH -->
+      
       <div class="search-container">
         <input type="text" placeholder="Search item..." bind:value={search} />
         <button class="add-btn" on:click={addItem}>+</button>
@@ -127,7 +127,7 @@
 
 <style>
 
-  /* Hintergrund */
+  
   .finder-bg {
     position: relative;
     width: 100%;

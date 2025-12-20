@@ -40,11 +40,11 @@ export async function GET() {
         addIngredients(entry.name, entry.amount);
     }
 
-    // 6. In alphabetischer Reihenfolge zurückgeben
+    // 6. In alphabetischer Reihenfolge zurückgeben (gerundet weil klarer)
     const sorted = Object.entries(materials)
         .map(([name, amount]) => ({
             name,
-            amount: Math.ceil(amount) // aufrunden
+            amount: Math.ceil(amount) 
         }))
         .sort((a, b) => a.name.localeCompare(b.name));
 

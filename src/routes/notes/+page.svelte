@@ -1,13 +1,13 @@
 <script>
     import { onMount } from "svelte";
-    import libraryImg from '$lib/assets/library.png'; // Hintergrundbild
+    import libraryImg from '$lib/assets/library.png';
 
     let notes = [];
     let newNote = "";
     let editingId = null;
     let editText = "";
 
-    // Load notes from MongoDB
+    
     async function loadNotes() {
         const res = await fetch("/api/notes");
         notes = await res.json();
@@ -59,7 +59,7 @@
     }
 </script>
 
-<!-- ⭐ Hintergrundbild direkt per Inline-Style, damit Svelte das Bild richtig verarbeitet -->
+
 <div class="bg" style="background-image: url('{libraryImg}');">
 
     <div class="wrapper">
@@ -68,13 +68,13 @@
             This is your personal space. Feel free to add, edit or remove notes whenever you like.
         </p>
 
-        <!-- New Note Input -->
+        
         <div class="new-note">
             <textarea placeholder="Write your note..." bind:value={newNote}></textarea>
             <button on:click={addNote}>Add Note</button>
         </div>
 
-        <!-- Existing Notes -->
+        
         <div class="notes-list">
             {#each notes as note}
                 {#if editingId === note._id}
@@ -102,7 +102,7 @@
 
 <style>
 
-    /* ⭐ Hintergrund – jetzt funktioniert es */
+    
     .bg {
         width: 100%;
         min-height: 100vh;
@@ -117,12 +117,12 @@
         padding-top: 3rem;
     }
 
-    /* Wrapper Box */
+    
     .wrapper {
         max-width: 650px;
         margin-bottom: 5rem;
         padding: 2.5rem;
-        background: #00000066; /* leichte Abdunkelung für gute Lesbarkeit */
+        background: #00000066; 
         border: 1px solid #ffffff20;
         border-radius: 18px;
         backdrop-filter: blur(14px);
@@ -143,12 +143,12 @@
         line-height: 1.3;
     }
 
-    /* ⭐ Eingabefeld – sauber ausgerichtet links/rechts */
+    
     .new-note textarea {
         width: 100%;
         height: 90px;
         padding: 0.8rem 1rem;
-        box-sizing: border-box; /* verhindert Überbreite */
+        box-sizing: border-box; 
         background: #ffffff12;
         border: 1px solid #ffffff30;
         border-radius: 10px;
@@ -158,7 +158,7 @@
         font-size: 1rem;
     }
 
-    /* ⭐ Add Button – kompakt */
+    
     .new-note button {
         width: 180px;
         padding: 0.7rem 0;

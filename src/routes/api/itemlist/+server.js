@@ -14,7 +14,7 @@ export async function POST({ request }) {
     const data = await request.json();
     const db = await connectDB();
 
-    // Always convert amount to number
+    
     data.amount = Number(data.amount);
 
     if (!data.name || isNaN(data.amount) || data.amount < 1) {
@@ -24,9 +24,7 @@ export async function POST({ request }) {
         );
     }
 
-    /* ---------------------------------------------------
-       1️⃣ Kategorie aus ItemAvailable auslesen
-    --------------------------------------------------- */
+    //Kategorie auslesen
     const referenceItem = await db.collection("ItemAvailable").findOne({
         name: data.name
     });
@@ -38,11 +36,9 @@ export async function POST({ request }) {
         );
     }
 
-    const category = referenceItem.category; // << Kategorie hier!
+    const category = referenceItem.category; 
 
-    /* ---------------------------------------------------
-       2️⃣ Wenn Item existiert → Menge erhöhen
-    --------------------------------------------------- */
+   //wenn item existiert Menge erhöhen
     const existingItem = await db.collection("ItemList").findOne({
         name: data.name
     });
@@ -58,13 +54,11 @@ export async function POST({ request }) {
         return json({ status: "stacked" });
     }
 
-    /* ---------------------------------------------------
-       3️⃣ Neues Item speichern – MIT KATEGORIE!
-    --------------------------------------------------- */
+  
     await db.collection("ItemList").insertOne({
         name: data.name,
         amount: data.amount,
-        category: category,         // << HIER WICHTIG!
+        category: category,         
         createdAt: new Date()
     });
 
