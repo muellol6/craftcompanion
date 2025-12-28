@@ -172,7 +172,30 @@ https://craftcompanion.netlify.app/
 #### 4.4.1. Entwurf (Design)
 - **Informationsarchitektur:** 
 Finder, My List, Collect, Charts, Notes -> klare Trennung nach Funktion.
-- **Oberflächenentwürfe:** _[wichtige Screens: Screenshots mit kurzer Erläuterung]_  
+- **Oberflächenentwürfe:**
+**Finder**
+Im Finder soll direkt die Suche in der Mitte sein mit einem Button zum Hinzufügen und ein Feld mit der Anzahl. Die Suchleiste ist dynamisch und soll vom Design her immer gleich sein: ![alt text](pictures/finder.png)
+
+**My List**
+Unter My List soll die Liste aufgeführt werden in einem Minecraft Buch Stil und es muss ein klarer Minus Button haben um ein Item zu entfernen:
+![alt text](pictures/mylist.png)
+
+Als Komponente bzw Detailansicht zum Craften sollen die Einzelnen Details aufgeführt sein und das Fenster muss ganz einfach mit X geschlossen werden können:
+
+
+**Collect**
+Unter Collect soll ein Durchsichtiges Design der Auflistung der Grundmaterialien den schönen Hintergrund mehr zur geltung bringen und ein Button mit JSON Download wird erst angezeigt wenn auch Inhalt da ist, hier ohne Inhalt:
+![alt text](pictures/collect.png)
+
+**Charts**
+Unter Charts soll das Design ähnlich sein wie vorher, also dunkel und ein wenig duchsichtig damit man das Hintergrundbild sieht. Die Charts sollen einfach dargestellt werden und der Titel ist kurz und prägnant:
+![alt text](pictures/charts.png)
+
+**Notes**
+Unter Notes soll auch ein ähnlich transparentes und dunkles Design genommen werden und die einzelnen Buttons müssen klar ersichtlich sein zum Verwalten:
+![alt text](pictures/notes.png)
+
+
 - **Designentscheidungen:** 
 - Einsatz eines Popup-Fensters für Details
 
