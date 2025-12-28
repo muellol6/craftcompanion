@@ -12,7 +12,6 @@
     items = await res.json();
   });
 
-  
   $: {
     if (search.trim().length === 0) {
       suggestions = [];
@@ -34,19 +33,12 @@
     suggestions = [];
   }
 
-  
-  function validateAmount(e) {
-    let val = parseInt(e.target.value);
-
-    if (isNaN(val) || val < 1) {
-      amount = "1"; 
-    } else {
-      amount = Math.floor(val);
-    }
-  }
+  // validateAmount wurde entfernt
 
   async function addItem() {
-    if (!amount || amount < 1) {
+    let val = parseInt(amount);
+
+    if (isNaN(val) || val < 1) {
       message = "Please enter a positive whole number!";
       setTimeout(() => (message = ""), 2000);
       return;
@@ -59,7 +51,7 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: search,
-        amount: amount
+        amount: val
       })
     });
 
@@ -90,7 +82,6 @@
         and add them to your list
       </p>
 
-      
       <div class="search-container">
         <input type="text" placeholder="Search item..." bind:value={search} />
         <button class="add-btn" on:click={addItem}>+</button>
@@ -112,7 +103,6 @@
           min="1"
           step="1"
           bind:value={amount}
-          on:input={validateAmount}
         />
       </div>
 
@@ -125,9 +115,9 @@
 
 </div>
 
+
 <style>
 
-  
   .finder-bg {
     position: relative;
     width: 100%;
