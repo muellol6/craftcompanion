@@ -182,6 +182,8 @@ Finder, My List, Collect, Charts, Notes -> klare Trennung nach Funktion.
 
 - Minecraft Schriftart
 
+- Einsatz von halbtransparenten UI-Elementen (Glassmorphism), sodass der Minecraft-Hintergrund subtil durchscheint.
+
 #### 4.4.2. Umsetzung (Technik)
 - **Technologie‑Stack:** 
 SvelteKit, JavaScript, MongoDB Atlas, Chart.js, Netlify.
@@ -202,7 +204,7 @@ Ein Grossteil der Umsetzung entstand mit Unterstützung von ChatGPT, insbesonder
 
 - JSON-Download für externe Weiterverarbeitung
   
-- Einsatz von halbtransparenten UI-Elementen (Glassmorphism), sodass der Minecraft-Hintergrund subtil durchscheint.
+
 
 ### 4.5 Validate
 - **URL der getesteten Version** https://craftcompanion.netlify.app/
