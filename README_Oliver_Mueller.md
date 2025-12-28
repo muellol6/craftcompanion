@@ -180,7 +180,9 @@ Im Finder soll direkt die Suche in der Mitte sein mit einem Button zum Hinzufüg
 Unter My List soll die Liste aufgeführt werden in einem Minecraft Buch Stil und es muss ein klarer Minus Button haben um ein Item zu entfernen:
 ![alt text](pictures/mylist.png)
 
+**Detail Crafting**
 Als Komponente bzw Detailansicht zum Craften sollen die Einzelnen Details aufgeführt sein und das Fenster muss ganz einfach mit X geschlossen werden können:
+![alt text](pictures/detail.png)
 
 
 **Collect**
