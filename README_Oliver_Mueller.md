@@ -201,6 +201,8 @@ Ein Grossteil der Umsetzung entstand mit Unterstützung von ChatGPT, insbesonder
 - API-Routen statt Stores für klare Verantwortlichkeiten
 
 - JSON-Download für externe Weiterverarbeitung
+  
+- Einsatz von halbtransparenten UI-Elementen (Glassmorphism), sodass der Minecraft-Hintergrund subtil durchscheint.
 
 ### 4.5 Validate
 - **URL der getesteten Version** https://craftcompanion.netlify.app/
