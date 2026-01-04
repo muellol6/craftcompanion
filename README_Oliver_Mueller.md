@@ -115,7 +115,8 @@ Nutzer möchten Rezepte, Kategorien und Materialmengen schnell auslesen können.
 Es wurden im Rahmen einer Crazy-8s-Übung mehrere funktionale Varianten skizziert, die bei gleichbleibender Grundstruktur unterschiedliche Schwerpunkte setzten, insbesondere in Bezug auf Suche, Assistenzfunktionen (Chatbot), persönliche Itemlisten und eine separate Berechnungsansicht.
 
 - **Skizzen:**
-Die Unterschiede lagen vor allem in Navigation, Informationsanordnung und visueller Betonung. In der Kleinklasse wurde eine erste Skizze erstellt: ![alt text](pictures/image.png)
+Die Unterschiede lagen vor allem in Navigation, Informationsanordnung und visueller Betonung. In der Kleinklasse wurde eine erste Skizze erstellt:
+ ![alt text](pictures/image.png)
 
 **Vergleich der skizzierten Varianten:**
 Die Skizzen entstanden im Rahmen einer Crazy-8s-Übung und zeigen unterschiedliche funktionale Schwerpunkte bei gleichbleibender Grundstruktur.
