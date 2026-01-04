@@ -313,6 +313,7 @@ Während der Implementierung lag der Schwerpunkt auf der iterativen Weiterentwic
 
 
 ## 7. KI‑Deklaration
+
 Die folgende Deklaration ist verpflichtend und beschreibt den Einsatz von KI im Projekt.
 
 ### Eingesetzte KI‑Werkzeuge
