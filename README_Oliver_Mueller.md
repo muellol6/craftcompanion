@@ -38,14 +38,22 @@ Wem nützt die Lösung, wer ist beteiligt oder betroffen?
 - **Primäre Zielgruppe:**
 Minecraft-Spielende, die grosse Farmen oder Redstone-Konstruktionen planen und dafür eine strukturierte Übersicht benötigen.
 
+**Annahmen:** 
+Nutzende kennen grundlegende Minecraft-Mechaniken und Crafting-Systeme.
+
 Hier ein Bild von Proto-Personas aus dem Unterricht angewendet auf meinen Prototyp:
 ![alt text](pictures/proto_personas.png)
 
 Hier noch ein Ausschnitt von der Problemraum-Analyse:
 ![alt text](pictures/problemraum_analyse.png)
 
-- **Annahmen [Optional]:** 
-Nutzende kennen grundlegende Minecraft-Mechaniken und Crafting-Systeme.
+Im Unterricht wurden bestehende Lösungen recherchiert. Die Erkenntnis davon ist, dass es diverse Ressource Calculators gibt, diese jedoch nicht visuell ansprechend, sprich funktional sind. Ausserdem sind diese nicht Anfänger:innen freundlich, haben keinen Chatbot und selten einen JSON Download. Beispiele für Konkurrenz mit Link wäre:
+
+- resourcecalculator.com/minecraft/
+- abfielder.com/minecraftCalculator/resourceCalculator
+- gamertools.net/tools/2
+
+ 
 
 ## 3. Anforderungen & Umfang
 
@@ -116,6 +124,7 @@ Es wurden im Rahmen einer Crazy-8s-Übung mehrere funktionale Varianten skizzier
 
 - **Skizzen:**
 Die Unterschiede lagen vor allem in Navigation, Informationsanordnung und visueller Betonung. In der Kleinklasse wurde eine erste Skizze erstellt:
+
  ![alt text](pictures/image.png)
 
 **Vergleich der skizzierten Varianten:**
