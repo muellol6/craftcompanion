@@ -38,6 +38,12 @@ Wem nützt die Lösung, wer ist beteiligt oder betroffen?
 - **Primäre Zielgruppe:**
 Minecraft-Spielende, die grosse Farmen oder Redstone-Konstruktionen planen und dafür eine strukturierte Übersicht benötigen.
 
+Hier ein Bild von Proto-Personas aus dem Unterricht angewendet auf meinen Prototyp:
+![alt text](pictures/proto_personas.png)
+
+Hier noch ein Ausschnitt von der Problemraum-Analyse:
+![alt text](pictures/problemraum_analyse.png)
+
 - **Annahmen [Optional]:** 
 Nutzende kennen grundlegende Minecraft-Mechaniken und Crafting-Systeme.
 
